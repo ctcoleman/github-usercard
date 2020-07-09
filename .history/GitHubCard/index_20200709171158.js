@@ -4,7 +4,7 @@ import axios from 'axios'
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-console.log(axios.get('https://api.github.com/users/ctcoleman'))
+axios.get(url: '')
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -50,56 +50,7 @@ const followersArray = [];
       </div>
     </div>
 */
-function createMarkUp(o) {
 
-  // create the elements to make the tree
-  const card = document.createElement('div')
-  const cardImage = document.createElement('img')
-  const cardInfo = document.createElement('div')
-  const nameHeader = document.createElement('h3')
-  const username = document.createElement('p')
-  const location = document.createElement('p')
-  const profile = document.createElement('p')
-  const profileLink = document.createElement('a')
-  const followers = document.createElement('p')
-  const following = document.createElement('p')
-  const bio = document.createElement('p')
-  const userLocation = null
-  const userFollowing = null
-  const userFollowers = null
-  const userBio = null
-  // place the elements in the dom in there respective parent elements
-  o.appendChild(card)
-  card.appendChild(cardImage)
-  card.appendChild(cardInfo)
-  cardInfo.appendChild(nameHeader)
-  cardInfo.appendChild(username)
-  cardInfo.appendChild(location)
-  cardInfo.appendChild(profile)
-  cardInfo.appendChild(profileLink)
-  cardInfo.appendChild(following)
-  cardInfo.appendChild(followers)
-  cardInfo.appendChild(bio)
-
-  card.className = 'card'
-  cardImage.src = '#'
-  cardInfo.className = 'card-info'
-  nameHeader.className = 'name'
-  username.className = 'username'
-  location.textContent = `Location: ${userLocation}`
-  profile.textContent = `Profile: ${profileLink}`
-  profileLink.href = 'https://github.com/ctcoleman'
-  profileLink.textContent = 'https://github.com/ctcoleman'
-  followers.textContent = `Followers: ${userFollowers}`
-  following.textContent = `Following: ${userFollowing}`
-  bio.textContent = `Bio: ${userBio}`
-
-  // print out the card treee
-  console.log(card)
-}
-const cards = document.querySelector('.cards')
-console.log(cards)
-createMarkUp(cards)
 /*
   List of LS Instructors Github username's:
     tetondan

@@ -64,10 +64,7 @@ function createMarkUp(o) {
   const followers = document.createElement('p')
   const following = document.createElement('p')
   const bio = document.createElement('p')
-  const userLocation = null
-  const userFollowing = null
-  const userFollowers = null
-  const userBio = null
+
   // place the elements in the dom in there respective parent elements
   o.appendChild(card)
   card.appendChild(cardImage)
@@ -76,24 +73,12 @@ function createMarkUp(o) {
   cardInfo.appendChild(username)
   cardInfo.appendChild(location)
   cardInfo.appendChild(profile)
-  cardInfo.appendChild(profileLink)
-  cardInfo.appendChild(following)
+  profile.appendChild(profileLink)
   cardInfo.appendChild(followers)
+  cardInfo.appendChild(following)
   cardInfo.appendChild(bio)
 
-  card.className = 'card'
-  cardImage.src = '#'
-  cardInfo.className = 'card-info'
-  nameHeader.className = 'name'
-  username.className = 'username'
-  location.textContent = `Location: ${userLocation}`
-  profile.textContent = `Profile: ${profileLink}`
-  profileLink.href = 'https://github.com/ctcoleman'
-  profileLink.textContent = 'https://github.com/ctcoleman'
-  followers.textContent = `Followers: ${userFollowers}`
-  following.textContent = `Following: ${userFollowing}`
-  bio.textContent = `Bio: ${userBio}`
-
+    
   // print out the card treee
   console.log(card)
 }

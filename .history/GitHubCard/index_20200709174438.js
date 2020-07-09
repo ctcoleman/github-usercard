@@ -67,7 +67,6 @@ function createMarkUp(o) {
   const userLocation = null
   const userFollowing = null
   const userFollowers = null
-  const userBio = null
   // place the elements in the dom in there respective parent elements
   o.appendChild(card)
   card.appendChild(cardImage)
