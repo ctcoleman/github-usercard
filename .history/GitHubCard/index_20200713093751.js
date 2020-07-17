@@ -4,7 +4,7 @@ import axios from 'axios'
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-// const gitUserURL = 'https://api.github.com/users/ctcoleman'
+const gitUserURL = 'https://api.github.com/users/ctcoleman'
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -102,17 +102,15 @@ function createMarkUp({ login, name, avatar_url, location, html_url, followers, 
 
 const cardsContainer = document.querySelector('.cards')
 
-usersArray.forEach((user) => {
-  const gitUserURL = 'https://api.github.com/users/' + user
-  axios.get(gitUserURL)
-    .then((value) => {
-      const info = value.data
-      cardsContainer.appendChild(createMarkUp(info))
-    })
-    .catch((e) => {
-      console.log(e)
-    })
-})
+usersArray.forEach(() => {})
+axios.get(gitUserURL)
+  .then((value) => {
+    const info = value.data
+    cardsContainer.appendChild(createMarkUp(info))
+  })
+  .catch((e) => {
+    console.log(e)
+  })
 /*
   List of LS Instructors Github username's:
     tetondan

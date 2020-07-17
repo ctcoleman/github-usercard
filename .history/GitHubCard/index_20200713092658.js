@@ -4,7 +4,7 @@ import axios from 'axios'
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-// const gitUserURL = 'https://api.github.com/users/ctcoleman'
+const gitUserURL = 'https://api.github.com/users/ctcoleman'
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -30,7 +30,7 @@ bottom of the page. Get at least 5 different Github usernames and add them as
     user, and adding that card to the DOM.
 */
 
-const usersArray = ['ctcoleman', 'tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell'];
+const followersArray = [];
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -101,18 +101,15 @@ function createMarkUp({ login, name, avatar_url, location, html_url, followers, 
 }
 
 const cardsContainer = document.querySelector('.cards')
+cardsContainer.appendChild(createMarkUp(gitUserURL))
 
-usersArray.forEach((user) => {
-  const gitUserURL = 'https://api.github.com/users/' + user
-  axios.get(gitUserURL)
-    .then((value) => {
-      const info = value.data
-      cardsContainer.appendChild(createMarkUp(info))
-    })
-    .catch((e) => {
-      console.log(e)
-    })
-})
+axios.get(gitUserURL)
+  .then((value) => {
+
+  })
+  .catch((e) => {
+    e.
+  })
 /*
   List of LS Instructors Github username's:
     tetondan
@@ -121,4 +118,3 @@ usersArray.forEach((user) => {
     luishrd
     bigknell
 */
-console.log(usersArray)

@@ -102,8 +102,8 @@ function createMarkUp({ login, name, avatar_url, location, html_url, followers, 
 
 const cardsContainer = document.querySelector('.cards')
 
-usersArray.forEach((user) => {
-  const gitUserURL = 'https://api.github.com/users/' + user
+usersArray.forEach((users) => {
+  const gitUserURL = 'https://api.github.com/users/' + ''
   axios.get(gitUserURL)
     .then((value) => {
       const info = value.data

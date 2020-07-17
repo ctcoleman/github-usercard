@@ -4,7 +4,7 @@ import axios from 'axios'
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-// const gitUserURL = 'https://api.github.com/users/ctcoleman'
+const gitUserURL = 'https://api.github.com/users/ctcoleman'
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -30,7 +30,7 @@ bottom of the page. Get at least 5 different Github usernames and add them as
     user, and adding that card to the DOM.
 */
 
-const usersArray = ['ctcoleman', 'tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell'];
+const followersArray = [];
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -52,8 +52,8 @@ const usersArray = ['ctcoleman', 'tetondan', 'dustinmyers', 'justsml', 'luishrd'
     </div>
 */
 
-function createMarkUp({ login, name, avatar_url, location, html_url, followers, following, bio }) {
-
+function createMarkUp({ avatar_url, location, html_url, followers, following, bio }) {
+  
   // create the elements to make the tree
   const card = document.createElement('div')
   card.className = 'card'
@@ -63,10 +63,9 @@ function createMarkUp({ login, name, avatar_url, location, html_url, followers, 
   cardInfo.className = 'card-info'
   const nameHeader = document.createElement('h3')
   nameHeader.className = 'name'
-  nameHeader.textContent = `${name}`
-  const userName = document.createElement('p')
-  userName.className = 'username'
-  userName.textContent = `${login}`
+  const username = document.createElement('p')
+  username.className = 'username'
+  userName.textContent = `${name}`
   const userLocation = document.createElement('p')
   userLocation.textContent = `Location: ${location}`
   const userProfile = document.createElement('p')
@@ -80,39 +79,31 @@ function createMarkUp({ login, name, avatar_url, location, html_url, followers, 
   userFollowing.textContent = `Following: ${following}`
   const userBio = document.createElement('p')
   userBio.textContent = `Bio: ${bio}`
-
-
+  
+  
   // place the elements in the dom in there respective parent elements
   card.appendChild(cardImage)
   card.appendChild(cardInfo)
   cardInfo.appendChild(nameHeader)
-  cardInfo.appendChild(userName)
-  cardInfo.appendChild(userLocation)
-  cardInfo.appendChild(userProfile)
-  cardInfo.appendChild(userProfileLink)
-  cardInfo.appendChild(userFollowing)
-  cardInfo.appendChild(userFollowers)
-  cardInfo.appendChild(userBio)
-
-
+  cardInfo.appendChild(username)
+  cardInfo.appendChild(location)
+  cardInfo.appendChild(profile)
+  cardInfo.appendChild(profileLink)
+  cardInfo.appendChild(following)
+  cardInfo.appendChild(followers)
+  cardInfo.appendChild(bio)
+  
+  
   // print out the card treee
   console.log(card)
   return card
 }
 
 const cardsContainer = document.querySelector('.cards')
+cardsContainer.appendChild(createMarkUp(gitUserURL))
 
-usersArray.forEach((user) => {
-  const gitUserURL = 'https://api.github.com/users/' + user
-  axios.get(gitUserURL)
-    .then((value) => {
-      const info = value.data
-      cardsContainer.appendChild(createMarkUp(info))
-    })
-    .catch((e) => {
-      console.log(e)
-    })
-})
+// axios.get(gitUserURL)
+
 /*
   List of LS Instructors Github username's:
     tetondan
@@ -121,4 +112,3 @@ usersArray.forEach((user) => {
     luishrd
     bigknell
 */
-console.log(usersArray)
